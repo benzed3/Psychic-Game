@@ -50,6 +50,7 @@
                 guesses = 9;
                 alert("You win!");
                 letter = [];
+                userGuess.pop();
             }
 
             if (userGuess !== compGuess) {
@@ -62,6 +63,7 @@
                 losses++;
                 alert("Try again!");
                 letter = [];
+                userGuess.pop();
             }
 
             letter.push(userGuess);
