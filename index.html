@@ -44,25 +44,24 @@
             var userGuess = event.key;
             var compGuess = compChoice[Math.floor(Math.random() * compChoice.length)];
 
-            if (compChoice.indexOf(userGuess) > -1) {
 
-                if (userGuess === compGuess) {
-                    wins++;
-                    guesses = 9;
-
-                }
-
-                if (userGuess !== compGuess) {
-                    guesses--;
-                }
-
-
-                if (guesses === 0) {
-                    guesses = 9;
-                    losses++;
-                }
+            if (userGuess === compGuess) {
+                wins++;
+                guesses = 9;
 
             }
+
+            if (userGuess !== compGuess) {
+                guesses--;
+            }
+
+
+            if (guesses === 0) {
+                guesses = 9;
+                losses++;
+            }
+
+
 
             letter.push(userGuess);
 
