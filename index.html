@@ -48,17 +48,20 @@
             if (userGuess === compGuess) {
                 wins++;
                 guesses = 9;
+                alert("You win!");
 
             }
 
             if (userGuess !== compGuess) {
                 guesses--;
+
             }
 
 
             if (guesses === 0) {
                 guesses = 9;
                 losses++;
+                alert("Try again!")
             }
 
 
