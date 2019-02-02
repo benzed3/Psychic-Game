@@ -29,7 +29,7 @@
         var wins = 0;
         var losses = 0;
         var guesses = 9;
-        var letter = 0;
+        var letter = [];
 
         var directions = document.getElementById("directions");
         var winsText = document.getElementById("winsText");
@@ -44,22 +44,37 @@
             var userGuess = event.key;
             var compGuess = compChoice[Math.floor(Math.random() * compChoice.length)];
 
+            if (compChoice.indexOf(userGuess) > -1) {
 
-            if (userGuess === compGuess) {
-                wins++;
-                guesses--;
+                if (userGuess === compGuess) {
+                    wins++;
+                    guesses = 9;
 
-            } else {
-                losses++;
-                guesses--;
+                }
+
+                if (userGuess !== compGuess) {
+                    guesses--;
+                }
+
+
+                if (guesses === 0) {
+                    guesses = 9;
+                    losses++;
+                }
 
             }
 
+            letter.push(userGuess);
+
             winsText.textContent = "Wins: " + wins;
             loseText.textContent = "Losses: " + losses;
+            guessLeftText.textContent = "Guesses Left: " + guesses;
 
-            guessText.textContent = "Your Guesses: " + userGuess;
-            guessLeftText.textContent = "Your Guesses: " + guesses;
+            for (var j = 0; j < letter.length; j++) {
+
+                guessText.textContent = "Your Guesses: " + letter[j];
+            }
+
 
         };
 
